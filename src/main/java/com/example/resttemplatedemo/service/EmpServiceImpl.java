@@ -29,9 +29,11 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public List<Emp> findByAgeGreaterThan30() {
+    public List<Emp> findByAgeGreaterThan30(int age) {
         Employees response = restTemplate.getForObject(Url, Employees.class);
-        List<Emp> empList = Arrays.asList(response.getEmpData());
-        return empList.stream().filter(e -> e.getEmployee_age()>30).collect(Collectors.toList());
+//        List<Emp> empList = Arrays.asList(response.getEmpData());
+//        return empList.stream().filter(e -> e.getEmployee_age()>age).collect(Collectors.toList());
+        return Arrays.stream(response.getEmpData()).filter(e -> e.getEmployee_age()>age).collect(Collectors.toList());
+
     }
 }

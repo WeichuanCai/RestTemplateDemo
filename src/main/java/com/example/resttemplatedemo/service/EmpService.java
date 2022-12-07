@@ -10,5 +10,5 @@ public interface EmpService {
 
 
     List<Emp> findAll();
-    List<Emp> findByAgeGreaterThan30();
+    List<Emp> findByAgeGreaterThan30(int age);
 }
